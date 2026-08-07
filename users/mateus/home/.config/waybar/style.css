@@ -1,40 +1,92 @@
-@define-color bg        #282828;
-@define-color bg-soft   #3c3836;
-@define-color fg        #ebdbb2;
-@define-color border    #3c3836;
-@define-color aqua      #8ec07c;
-@define-color blue      #83a598;
-@define-color green     #b8bb26;
-@define-color yellow    #fabd2f;
-@define-color orange    #fe8019;
-@define-color red       #fb4934;
+@define-color bg #282828;
+@define-color bg-alt #32302f;
+@define-color fg #ebdbb2;
+@define-color border #3c3836;
+@define-color yellow #d79921;
+@define-color red #cc241d;
 
 * {
 all: unset;
-font-family: "JetBrainsMono Nerd Font";
-font-size: 15px;
+}
+
+.modules-left>widget>*,
+.modules-center>widget>*,
+.modules-right>widget>* {
+font-family: "Roboto Serif";
+font-size: 14px;
+color: @fg;
+}
+
+#custom-arrow_workspaces_mpris,
+#custom-arrow_cliphist_bluetooth,
+#custom-arrow_wireplumber_backlight,
+#custom-arrow_clock_menu {
+color: @bg;
+}
+
+#custom-arrow_mpris_bg,
+#custom-arrow_bg_tray,
+#custom-arrow_network_wireplumber,
+#custom-arrow_battery_clock {
+color: @bg-alt;
 }
 
 #waybar>box {
 background-color: @bg;
-border-bottom: 1px solid @border;
+border: 1px solid @border
 }
 
-.modules-left > widget > *,
-.modules-center > widget > *,
-.modules-right > widget > * {
-color: @fg;
-padding: 5px 15px;
+#custom-arrow_workspaces_mpris,
+#custom-arrow_cliphist_bluetooth,
+#custom-arrow_wireplumber_backlight,
+#custom-arrow_clock_menu,
+#mpris,
+#tray,
+#idle_inhibitor,
+#custom-cliphist,
+#wireplumber,
+#clock {
+background-color: @bg-alt;
 }
 
-#workspaces {
+#mpris,
+#workspaces button,
+.modules-center>widget>*,
+.modules-right>widget>* {
+padding: 0 12px;
+}
+
+#custom-arrow_workspaces_mpris,
+#custom-arrow_mpris_bg,
+#custom-arrow_bg_tray,
+#custom-arrow_cliphist_bluetooth,
+#custom-arrow_network_wireplumber,
+#custom-arrow_wireplumber_backlight,
+#custom-arrow_battery_clock,
+#custom-arrow_clock_menu {
+font-size: 22px;
 padding: 0;
 }
 
-#workspaces button {
-color: @fg;
-margin: 1px;
-min-width: 55px;
+#workspaces button:hover,
+#workspaces button.focused,
+#workspaces button.active,
+#mpris:hover,
+#idle_inhibitor:hover,
+#custom-cliphist:hover,
+#bluetooth:hover,
+#network:hover,
+#wireplumber:hover,
+#backlight:hover,
+#battery:hover,
+#clock:hover,
+#custom-menu:hover,
+menu menuitem:hover {
+color: @yellow;
+}
+
+#workspaces button.urgent {
+color: @red;
 }
 
 menu,
@@ -48,29 +100,3 @@ padding: 10px;
 menu menuitem {
 padding: 5px;
 }
-
-#workspaces button:hover,
-#workspaces button.focused,
-#workspaces button.active,
-#mpris:hover,
-#clock:hover,
-#tray > *:hover,
-#idle_inhibitor:hover,
-#custom-cliphist:hover,
-#bluetooth:hover,
-#network:hover,
-#wireplumber:hover,
-#backlight:hover,
-#battery:hover,
-#custom-menu:hover,
-menu menuitem:hover {
-background-color: @bg-soft;
-color: @yellow;
-}
-
-#workspaces button.urgent {background-color: @red;}
-#bluetooth.on {color: @blue;}
-#bluetooth.connected {color: @aqua;}
-#network.disconnected {color: @red;}
-#battery.charging {color: @green;}
-#battery.warning:not(.charging) {color: @orange;}

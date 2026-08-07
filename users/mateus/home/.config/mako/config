@@ -1,16 +1,25 @@
-font=JetBrainsMono Nerd Font 12
+layer=overlay
+sort=-time
+default-timeout=5000
+ignore-timeout=1
+icons=0
+
+width=300
+height=110
+
+font=Roboto Serif 12
 text-color=#ebdbb2
 background-color=#282828
-border-color=#bdae93
+border-color=#d79921
 border-size=2
 border-radius=0
-icon-border-radius=0
-padding=16
-margin=4
-text-alignment=left
-anchor=top-right
-sort=-time
-default-timeout=7000
+padding=10
+margin=5
+
+[urgency=low]
+border-color=#b8bb26
+[urgency=normal]
+border-color=#d79921
 [urgency=high]
-border-color=#cc241d
-default-timeout=14000
+border-color=#fb4934
+default-timeout=0

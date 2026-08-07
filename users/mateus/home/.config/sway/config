@@ -1,10 +1,10 @@
 include /etc/sway/config.d/*
-set $fg #bdae93
+set $fg #d79921
 set $unfocused #665c54
 set $urgent #cc241d
 output HDMI-A-1 {
 mode 1920x1080@100.000Hz
-bg $HOME/Imagens/BirthOfVenus.jpg center
+bg $HOME/Imagens/mars.jpg center
 subpixel rgb
 }
 output eDP-1 {
@@ -26,9 +26,9 @@ natural_scroll enabled
 }
 gaps inner 10
 gaps outer 10
+smart_gaps true
 default_border pixel 2
 default_floating_border pixel 2
-smart_gaps true
 smart_borders true
 client.focused $fg $fg $fg $fg
 client.focused_inactive $unfocused $unfocused $unfocused $unfocused

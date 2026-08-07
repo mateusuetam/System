@@ -1,7 +1,7 @@
 @import "colors.rasi"
 window{
 height:500px;
-width:600px;
+width:500px;
 }
 mainbox{
 background-color:@background;
@@ -11,7 +11,6 @@ children:[inputbar,listview];
 }
 inputbar{
 background-color:@input;
-border:1px;
 padding:12px;
 margin:0px 50px 16px 50px;
 children:[entry];
@@ -22,6 +21,7 @@ vertical-align:0.5;
 }
 configuration{
 show-icons:true;
+drun-display-format:"{name}";
 }
 element-icon{
 size:34px;

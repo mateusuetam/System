@@ -23,11 +23,13 @@ git.enable = true;
 
 nixpkgs.config.allowUnfreePredicate = pkg:
 builtins.elem (lib.getName pkg) [
+"discord"
 "spotify"
 "vscode"
 ];
 
 users.users.mateus.packages = with pkgs; [
+discord
 gimp
 spotify
 tree

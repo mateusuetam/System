@@ -1,9 +1,9 @@
 *{
-font:"JetBrainsMono Nerd Font 12";
+font:"Roboto Serif 12";
 text-color:#ebdbb2;
 background:#282828;
-border-color:#bdae93;
-hover:#3c3836;
+border-color:#d79921;
+hover:#32302f;
 input:#32302f;
 background-color:transparent;
 }

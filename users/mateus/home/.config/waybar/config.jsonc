@@ -1,29 +1,39 @@
 {
 "modules-left": [
 "sway/workspaces",
-"mpris"
+"custom/arrow_workspaces_mpris",
+"mpris",
+"custom/arrow_mpris_bg"
 ],
 
 "modules-center": [
-"clock"
+"sway/window"
 ],
 
 "modules-right": [
+"custom/arrow_bg_tray",
 "tray",
 "idle_inhibitor",
 "custom/cliphist",
+"custom/arrow_cliphist_bluetooth",
 "bluetooth",
 "network",
+"custom/arrow_network_wireplumber",
 "wireplumber#source",
 "wireplumber#sink",
+"custom/arrow_wireplumber_backlight",
 "backlight",
 "battery",
+"custom/arrow_battery_clock",
+"clock",
+"custom/arrow_clock_menu",
 "custom/menu"
 ],
 
 "sway/workspaces": {
 "all-outputs": true,
-"format": "{name}"
+"format": "{name}",
+"interval": "once"
 },
 
 "mpris": {
@@ -34,7 +44,114 @@
 "playing": "󰏤",
 "stopped": "󰓛"
 },
-"max-length": 35
+"max-length": 40,
+"tooltip": false,
+"interval": "once"
+},
+
+"sway/window": {
+"format": "{}",
+"max-length": 40,
+"interval": "once"
+},
+
+"tray": {
+"icon-size": 18,
+"spacing": 15,
+"show-passive-items": true,
+"interval": "once"
+},
+
+"idle_inhibitor": {
+"format": "{icon}",
+"format-icons": {
+"activated": "󰅶",
+"deactivated": "󰾪"
+},
+"timeout": 720,
+"tooltip": false,
+"interval": "once"
+},
+
+"custom/cliphist": {
+"format": "󰆏",
+"tooltip": false,
+"on-click": "cliphist list | rofi -dmenu -theme $HOME/.config/rofi/launcher.rasi | cliphist decode | wl-copy",
+"on-click-right": "cliphist wipe && notify-send 'Cliphist' 'Histórico limpo!'",
+"interval": "once"
+},
+
+"bluetooth": {
+"format": "󰂲",
+"format-on": "{icon}",
+"format-off": "{icon}",
+"format-connected": "{icon}",
+"format-connected-battery": "󰂱",
+"format-icons": {
+"on": "󰂯",
+"off": "󰂲",
+"connected": "󰂱"
+},
+"on-click": "$HOME/.scripts/blue.sh",
+"on-click-right": "rfkill toggle bluetooth",
+"tooltip-format": "{device_alias} ({device_battery_percentage}%)",
+"interval": 60
+},
+
+"network": {
+"format-wifi": "󰤢",
+"format-ethernet": "󰈀",
+"format-disconnected": "󰤠",
+"format-disabled": "󰤭",
+"tooltip-format": "{essid}",
+"on-click": "$HOME/.scripts/wifi.sh",
+"on-click-right": "rfkill toggle wlan",
+"interval": "once"
+},
+
+"wireplumber#source": {
+"node-type": "Audio/Source",
+"format": " {volume}%",
+"format-muted": "",
+"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+"on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 1%+",
+"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-",
+"interval": "once"
+},
+
+"wireplumber#sink": {
+"node-type": "Audio/Sink",
+"format": "{icon}  {volume}%",
+"format-muted": "",
+"format-icons": ["","",""],
+"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+"on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+",
+"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+"interval": "once"
+},
+
+"backlight": {
+"format": "{icon}  {percent}%",
+"format-icons": ["","󰃜","󰃛","󰃞","󰃝","󰃟","󰃠"],
+"tooltip": false,
+"on-click": "$HOME/.scripts/redfilter.sh",
+"on-click-right": "pkill gammastep || gammastep -O 2500",
+"interval": "once"
+},
+
+"battery": {
+"states": {
+"good": 80,
+"warning": 29,
+"critical": 19
+},
+"format": "{icon}  {capacity}%",
+"format-full": " {capacity}%",
+"format-charging": " {capacity}%",
+"format-plugged": " {capacity}%",
+"format-icons": ["","","","",""],
+"tooltip": false,
+"interval": 60
 },
 
 "clock": {
@@ -59,94 +176,19 @@
 "interval": 60
 },
 
-"tray": {
-"icon-size": 18,
-"spacing": 30,
-"show-passive-items": true
-},
-
-"idle_inhibitor": {
-"format": "{icon}",
-"format-icons": {
-"activated": "",
-"deactivated": ""
-},
-"timeout": 720
-},
-
-"custom/cliphist": {
-"format": "󰆏",
-"tooltip": false,
-"on-click": "cliphist list | rofi -dmenu -theme $HOME/.config/rofi/launcher.rasi | cliphist decode | wl-copy",
-"on-click-right": "cliphist wipe && notify-send 'Cliphist' 'Histórico limpo!'"
-},
-
-"bluetooth": {
-"format": "󰂲",
-"format-on": "{icon}",
-"format-off": "{icon}", 
-"format-connected":"{icon}",
-"format-icons":{
-"on":"󰂯",
-"off": "󰂲",
-"connected": "󰂱"
-},
-"on-click": "$HOME/.scripts/blue.sh",
-"on-click-right": "rfkill toggle bluetooth"
-},
-
-"network": {
-"format-wifi": "󰤢",
-"format-ethernet": "󰈀",
-"format-disconnected": "󰤠",
-"format-disabled": "󰤭",
-"tooltip-format": "{essid}",
-"on-click": "$HOME/.scripts/wifi.sh",
-"on-click-right": "rfkill toggle wlan"
-},
-
-"backlight": {
-"format": "{icon}  {percent}%",
-"format-icons": ["","󰃜", "󰃛", "󰃞","󰃝","󰃟","󰃠"],
-"tooltip": false,
-"on-click": "$HOME/.scripts/redfilter.sh",
-"on-click-right": "pkill gammastep || gammastep -O 2500"
-},
-
-"wireplumber#sink": {
-"format": "{icon}  {volume}%",
-"format-muted": "",
-"format-icons": ["", "", ""],
-"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-"scroll-step": 5
-},
-
-"wireplumber#source": {
-"node-type": "Audio/Source",
-"format": " {volume}%",
-"format-muted": "",
-"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-"scroll-step": 5
-},
-
-"battery": {
-"interval": 120,
-"states": {
-"good": 80,
-"warning": 29,
-"critical": 19
-},
-"format": "{icon}  {capacity}%",
-"format-full": " {icon}  {capacity}%",
-"format-charging": " {capacity}%",
-"format-plugged": " {capacity}%",
-"format-icons": ["", "", "", "", ""],
-"tooltip": false
-},
-
 "custom/menu": {
 "format": "⏻",
 "tooltip": false,
-"on-click": "$HOME/.scripts/powermenu.sh"
-}
+"on-click": "$HOME/.scripts/powermenu.sh",
+"interval": "once"
+},
+
+"custom/arrow_workspaces_mpris": { "format": "", "tooltip": false, "interval": "once" },
+"custom/arrow_mpris_bg": { "format": "", "tooltip": false, "interval": "once" },
+"custom/arrow_bg_tray": { "format": "", "tooltip": false, "interval": "once" },
+"custom/arrow_cliphist_bluetooth": { "format": "", "tooltip": false, "interval": "once" },
+"custom/arrow_network_wireplumber": { "format": "", "tooltip": false, "interval": "once" },
+"custom/arrow_wireplumber_backlight": { "format": "", "tooltip": false, "interval": "once" },
+"custom/arrow_battery_clock": { "format": "", "tooltip": false, "interval": "once" },
+"custom/arrow_clock_menu": { "format": "", "tooltip": false, "interval": "once" }
 }
