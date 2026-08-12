@@ -10,10 +10,6 @@ desktopManager.plasma6.enable = true;
 displayManager.plasma-login-manager.enable = true;
 };
 
-environment.systemPackages = with pkgs; [
-kdePackages.kcalc
-];
-
 environment.plasma6.excludePackages = with pkgs.kdePackages; [
 discover
 plasma-browser-integration
@@ -22,6 +18,10 @@ qtsensors
 qttools
 khelpcenter
 krdp
+];
+
+users.users.mateus.packages = with pkgs; [
+kdePackages.kcalc
 ];
 };
 }

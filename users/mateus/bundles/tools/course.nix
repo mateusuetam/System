@@ -17,7 +17,7 @@ mysqlx = 0;
 
 systemd.services.mysql.wantedBy = lib.mkForce [ ];
 
-environment.systemPackages = with pkgs; [
+users.users.mateus.packages = with pkgs; [
 jdk
 mysql-workbench
 

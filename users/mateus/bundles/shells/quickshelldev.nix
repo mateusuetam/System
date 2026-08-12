@@ -5,7 +5,7 @@ options.my.quickshelldev.enable = lib.mkEnableOption "Bundle para desenvolviment
 
 config = lib.mkIf config.my.quickshelldev.enable {
 
-environment.systemPackages = with pkgs; [
+users.users.mateus.packages = with pkgs; [
 qt6.qtwayland
 
 (symlinkJoin {

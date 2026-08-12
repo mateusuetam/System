@@ -20,12 +20,12 @@ extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
 my = {
 gnome.enable = false;
 kde.enable = false;
-niri.enable = false;
-sway.enable = true;
+niri.enable = true;
+sway.enable = false;
 
-quickshell.enable = false;
-quickshelldev.enable = false;
-shellminimal.enable = true;
+quickshell.enable = true;
+quickshelldev.enable = true;
+shellminimal.enable = false;
 
 course.enable = true;
 firefox.enable = true;

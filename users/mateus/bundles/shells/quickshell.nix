@@ -9,7 +9,7 @@ fonts.packages = with pkgs; [
 monaspace
 ];
 
-environment.systemPackages = with pkgs; [
+users.users.mateus.packages = with pkgs; [
 brightnessctl
 cliphist
 gammastep
