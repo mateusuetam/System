@@ -35,8 +35,24 @@ SearchBar = "unified";
 RequestedLocales = [ "pt-BR" ];
 
 SearchEngines = {
-Default = "Google";
-Remove = [ "Bing" "DuckDuckGo" "MercadoLivre" "Perplexity" "Wikipédia (pt)" ];
+Default = "Startpage";
+Add = [
+{
+Name = "Startpage";
+URLTemplate = "https://www.startpage.com/sp/search?query={searchTerms}";
+Method = "GET";
+IconURL = "https://www.startpage.com/favicon.ico";
+}
+];
+Remove = [
+"Google"
+"Bing"
+"DuckDuckGo"
+"MercadoLivre"
+"Perplexity"
+"Wikipédia (pt)"
+];
+PreventInstalls = true;
 };
 
 EnableTrackingProtection = {
@@ -95,6 +111,10 @@ install_url = "https://addons.mozilla.org/firefox/downloads/latest/corretor/late
 Preferences = {
 # Abrir janelas e abas anteriores
 "browser.startup.page" = 3;
+
+# Confirmar fechamento
+"browser.warnOnQuit" = true;
+"browser.warnOnQuitShortcut" = true;
 
 # Idioma e Localização de Websites
 "intl.accept_languages" = "pt-br,pt,en-us,en";

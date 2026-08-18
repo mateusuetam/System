@@ -3,29 +3,7 @@
 #
 [[ $- != *i* ]] && return
 
-# ==== PS1 ====
-
-FG_BLUE="\[\e[38;5;109m\]"
-FG_GREEN="\[\e[38;5;142m\]"
-FG_RED="\[\e[38;5;167m\]"
-FG_SUBTEXT="\[\e[38;5;245m\]"
-RESET="\[\e[0m\]"
-
-set_prompt(){
-local EXIT_STATUS=$?
-local INDICATOR
-if [[ $EXIT_STATUS -eq 0 ]]; then
-INDICATOR="${FG_GREEN}◆"
-else
-INDICATOR="${FG_RED}◆"
-fi
-PS1=" ${INDICATOR} ${FG_SUBTEXT}\u@\h ${FG_BLUE}[\w]${RESET} ❯ "
-}
-
-PROMPT_COMMAND="set_prompt${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
-
 # ==== Funções ====
-
 ex() {
 [[ -f "$1" ]] || {
 echo "'$1' arquivo inválido."
@@ -49,7 +27,6 @@ esac
 }
 
 # ==== Aliases e Readline ====
-
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
