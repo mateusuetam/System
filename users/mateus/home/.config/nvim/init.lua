@@ -7,11 +7,12 @@ vim.opt.number=true
 vim.opt.relativenumber=false
 vim.opt.updatetime=250
 vim.opt.inccommand="split"
-vim.opt.list=true
 vim.opt.colorcolumn="0"
-vim.opt.shiftwidth=0
-vim.opt.expandtab=false
-vim.opt.listchars={tab='» ',trail='·',nbsp='␣'}
+vim.opt.tabstop = 3
+vim.opt.shiftwidth = 3
+vim.opt.expandtab = false
+vim.opt.list = true
+vim.opt.listchars = {tab='  ',trail='•',nbsp='␣'}
 
 -- netrw
 vim.g.netrw_liststyle=3
@@ -20,16 +21,19 @@ vim.g.netrw_keepdir=0
 vim.g.netrw_banner=0
 
 -- remap
-vim.g.mapleader=" "
-vim.keymap.set('n','<leader>e','<cmd>Alpha<CR>')
-vim.keymap.set('n','<leader>w',vim.cmd.w)
-vim.keymap.set('n','<leader>q',vim.cmd.q)
-vim.keymap.set({'n','v'},'<Leader>y','"+y')
-vim.keymap.set({'n','v'},'<Leader>p','"+p')
-vim.keymap.set('n', '<leader>a', ':%left<CR>')
-vim.keymap.set('n', '<leader>s', '<cmd>global/^$/delete<CR>')
-vim.keymap.set('n', '<leader>d', ':%s/  \\+/ /g<CR>')
-vim.keymap.set('n','<Esc>','<cmd>nohlsearch<CR>')
+vim.g.mapleader = ' '
+vim.keymap.set('n', '<leader>e', '<cmd>Alpha<CR>')
+vim.keymap.set('n', '<leader>w', vim.cmd.w)
+vim.keymap.set('n', '<leader>q', vim.cmd.q)
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
+vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
+vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set('n', '<leader><k4>', ':%left<CR>')
+vim.keymap.set('n', '<leader><k8>', '<cmd>global/^$/delete<CR>')
+vim.keymap.set('n', '<leader><k6>', 'mzgg=G`z')
+vim.keymap.set('n', '<leader><k1>', ':%s/  \\+/ /g<CR>')
+vim.keymap.set('n', '<leader><k7>', ':%s/\\s\\+$//e<CR>')
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- telescope
 local telescope_loaded = false
