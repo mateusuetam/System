@@ -4,9 +4,10 @@ imports = [
 ./environments/kde.nix
 ./environments/niri.nix
 ./environments/sway.nix
+./shells/minimalshell.nix
 ./shells/quickshell.nix
 ./shells/quickshelldev.nix
-./shells/shellminimal.nix
+./shells/shellutils.nix
 ./tools/course.nix
 ./tools/firefox.nix
 ./tools/fonts.nix

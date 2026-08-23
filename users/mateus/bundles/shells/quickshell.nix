@@ -10,12 +10,8 @@ monaspace
 ];
 
 users.users.mateus.packages = with pkgs; [
-brightnessctl
-cliphist
-gammastep
-libnotify
+alacritty
 quickshell
-wl-clipboard
 ];
 
 systemd.user.services.cliphist-watch = {

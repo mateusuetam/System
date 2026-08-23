@@ -1,102 +1,19 @@
 @define-color bg #282828;
-@define-color bg-alt #32302f;
 @define-color fg #ebdbb2;
 @define-color border #3c3836;
-@define-color yellow #d79921;
-@define-color red #cc241d;
+@define-color hover #d79921;
+@define-color alert #cc241d;
 
-* {
-all: unset;
-}
+* {all: unset;}
 
-.modules-left>widget>*,
-.modules-center>widget>*,
-.modules-right>widget>* {
-font-family: "Roboto Serif";
-font-size: 14px;
-color: @fg;
-}
+#waybar>box {background-color: @bg; border-bottom: 1px solid @border}
 
-#custom-arrow_workspaces_mpris,
-#custom-arrow_cliphist_bluetooth,
-#custom-arrow_wireplumber_backlight,
-#custom-arrow_clock_menu {
-color: @bg;
-}
+#mpris, #workspaces button, .modules-right>widget>* {font-family: "Roboto Serif"; font-size: 14px; color: @fg; padding: 4px 10px;}
 
-#custom-arrow_mpris_bg,
-#custom-arrow_bg_tray,
-#custom-arrow_network_wireplumber,
-#custom-arrow_battery_clock {
-color: @bg-alt;
-}
+menu, menuitem, tooltip label {color: @fg; background-color: @bg; padding: 5px;}
+menu {border: 1px solid @border}
 
-#waybar>box {
-background-color: @bg;
-border: 1px solid @border
-}
+#workspaces button:hover, #workspaces button.focused, #workspaces button.active,
+#mpris:hover, .modules-right>widget>*:hover, menu menuitem:hover {color: @hover;}
 
-#custom-arrow_workspaces_mpris,
-#custom-arrow_cliphist_bluetooth,
-#custom-arrow_wireplumber_backlight,
-#custom-arrow_clock_menu,
-#mpris,
-#tray,
-#idle_inhibitor,
-#custom-cliphist,
-#wireplumber,
-#clock {
-background-color: @bg-alt;
-}
-
-#mpris,
-#workspaces button,
-.modules-center>widget>*,
-.modules-right>widget>* {
-padding: 0 12px;
-}
-
-#custom-arrow_workspaces_mpris,
-#custom-arrow_mpris_bg,
-#custom-arrow_bg_tray,
-#custom-arrow_cliphist_bluetooth,
-#custom-arrow_network_wireplumber,
-#custom-arrow_wireplumber_backlight,
-#custom-arrow_battery_clock,
-#custom-arrow_clock_menu {
-font-size: 22px;
-padding: 0;
-}
-
-#workspaces button:hover,
-#workspaces button.focused,
-#workspaces button.active,
-#mpris:hover,
-#idle_inhibitor:hover,
-#custom-cliphist:hover,
-#bluetooth:hover,
-#network:hover,
-#wireplumber:hover,
-#backlight:hover,
-#battery:hover,
-#clock:hover,
-#custom-menu:hover,
-menu menuitem:hover {
-color: @yellow;
-}
-
-#workspaces button.urgent {
-color: @red;
-}
-
-menu,
-tooltip label {
-color: @fg;
-background-color: @bg;
-border: 1px solid @border;
-padding: 10px;
-}
-
-menu menuitem {
-padding: 5px;
-}
+#workspaces button.urgent {color: @alert;}

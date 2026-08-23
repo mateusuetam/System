@@ -4,11 +4,14 @@ set $unfocused #665c54
 set $urgent #cc241d
 output HDMI-A-1 {
 mode 1920x1080@100.000Hz
-bg $HOME/Imagens/mars.jpg center
+bg #282828 solid_color
 subpixel rgb
 }
 output eDP-1 {
 disable
+mode 1920x1080@60.001Hz
+bg #282828 solid_color
+subpixel rgb
 }
 input type:keyboard {
 xkb_layout "br"
@@ -68,10 +71,9 @@ bindsym Mod4+Shift+8 move container to workspace number 8
 bindsym Mod4+Shift+9 move container to workspace number 9
 bindsym Mod4+Shift+0 move container to workspace number 10
 bindsym Mod4+Shift+r reload
-bindsym Mod4+Return exec alacritty
-bindsym Mod4+e exec alacritty -e nvim
+bindsym Mod4+Return exec foot
+bindsym Mod4+e exec foot -e nvim
 bindsym Mod4+b exec firefox
-bindsym Mod4+p exec rofi -show drun -theme $HOME/.config/rofi/launcher.rasi
 bindsym Super_R exec swaylock -f
 bindsym Print exec grim -g "$(slurp)" - | tee ~/Imagens/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy && notify-send "Print!"
 exec mako

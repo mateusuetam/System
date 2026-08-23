@@ -1,33 +1,20 @@
 {
 "modules-left": [
 "sway/workspaces",
-"custom/arrow_workspaces_mpris",
-"mpris",
-"custom/arrow_mpris_bg"
-],
-
-"modules-center": [
-"sway/window"
+"mpris"
 ],
 
 "modules-right": [
-"custom/arrow_bg_tray",
 "tray",
 "idle_inhibitor",
 "custom/cliphist",
-"custom/arrow_cliphist_bluetooth",
 "bluetooth",
 "network",
-"custom/arrow_network_wireplumber",
 "wireplumber#source",
 "wireplumber#sink",
-"custom/arrow_wireplumber_backlight",
 "backlight",
 "battery",
-"custom/arrow_battery_clock",
-"clock",
-"custom/arrow_clock_menu",
-"custom/menu"
+"clock"
 ],
 
 "sway/workspaces": {
@@ -37,8 +24,8 @@
 },
 
 "mpris": {
-"format": "{status_icon} {artist} - {title}",
-"format-paused": "{status_icon} {artist} - {title}",
+"format": "{status_icon}  {artist} - {title}",
+"format-paused": "{status_icon}  {artist} - {title}",
 "status-icons": {
 "paused": "󰐊",
 "playing": "󰏤",
@@ -46,12 +33,6 @@
 },
 "max-length": 40,
 "tooltip": false,
-"interval": "once"
-},
-
-"sway/window": {
-"format": "{}",
-"max-length": 40,
 "interval": "once"
 },
 
@@ -76,7 +57,7 @@
 "custom/cliphist": {
 "format": "󰆏",
 "tooltip": false,
-"on-click": "cliphist list | rofi -dmenu -theme $HOME/.config/rofi/launcher.rasi | cliphist decode | wl-copy",
+"on-click": "foot -e sh -c 'cliphist list; printf \"\\nPressione ENTER para fechar...\"; read'",
 "on-click-right": "cliphist wipe && notify-send 'Cliphist' 'Histórico limpo!'",
 "interval": "once"
 },
@@ -92,7 +73,7 @@
 "off": "󰂲",
 "connected": "󰂱"
 },
-"on-click": "$HOME/.scripts/blue.sh",
+"on-click": "foot -e bluetoothctl",
 "on-click-right": "rfkill toggle bluetooth",
 "tooltip-format": "{device_alias} ({device_battery_percentage}%)",
 "interval": 60
@@ -104,7 +85,7 @@
 "format-disconnected": "󰤠",
 "format-disabled": "󰤭",
 "tooltip-format": "{essid}",
-"on-click": "$HOME/.scripts/wifi.sh",
+"on-click": "foot -e nmtui",
 "on-click-right": "rfkill toggle wlan",
 "interval": "once"
 },
@@ -134,8 +115,8 @@
 "format": "{icon}  {percent}%",
 "format-icons": ["","󰃜","󰃛","󰃞","󰃝","󰃟","󰃠"],
 "tooltip": false,
-"on-click": "$HOME/.scripts/redfilter.sh",
-"on-click-right": "pkill gammastep || gammastep -O 2500",
+"on-click": "gammastep -O 2000",
+"on-click-right": "pkill gammastep",
 "interval": "once"
 },
 
@@ -174,21 +155,5 @@
 }
 },
 "interval": 60
-},
-
-"custom/menu": {
-"format": "⏻",
-"tooltip": false,
-"on-click": "$HOME/.scripts/powermenu.sh",
-"interval": "once"
-},
-
-"custom/arrow_workspaces_mpris": { "format": "", "tooltip": false, "interval": "once" },
-"custom/arrow_mpris_bg": { "format": "", "tooltip": false, "interval": "once" },
-"custom/arrow_bg_tray": { "format": "", "tooltip": false, "interval": "once" },
-"custom/arrow_cliphist_bluetooth": { "format": "", "tooltip": false, "interval": "once" },
-"custom/arrow_network_wireplumber": { "format": "", "tooltip": false, "interval": "once" },
-"custom/arrow_wireplumber_backlight": { "format": "", "tooltip": false, "interval": "once" },
-"custom/arrow_battery_clock": { "format": "", "tooltip": false, "interval": "once" },
-"custom/arrow_clock_menu": { "format": "", "tooltip": false, "interval": "once" }
+}
 }

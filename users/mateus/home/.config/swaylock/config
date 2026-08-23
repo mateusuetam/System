@@ -1,7 +1,6 @@
 font=Roboto Serif
 font-size=22px
-image=$HOME/Imagens/mars.jpg
-scaling=center
+color=282828
 text-color=ebdbb2
 text-caps-lock-color=ebdbb2
 text-ver-color=fabd2f

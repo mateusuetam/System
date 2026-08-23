@@ -5,7 +5,11 @@ options.my.course.enable = lib.mkEnableOption "Bundle para o curso";
 
 config = lib.mkIf config.my.course.enable {
 
-services.mysql = {
+services = {
+gnome.gnome-keyring = {
+enable = true;
+};
+mysql = {
 enable = true;
 package = pkgs.mysql84;
 settings.mysqld = {
@@ -14,16 +18,14 @@ port = 3306;
 mysqlx = 0;
 };
 };
+};
 
 systemd.services.mysql.wantedBy = lib.mkForce [ ];
-
-environment.systemPackages = with pkgs; [
-nodejs
-];
 
 users.users.mateus.packages = with pkgs; [
 jdk
 mysql-workbench
+nodejs
 
 (symlinkJoin {
 name = "netbeans-wrapped";
