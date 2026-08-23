@@ -4,6 +4,29 @@
 [[ $- != *i* ]] && return
 
 # ==== Funções ====
+run() {
+if [[ -z "$1" ]]; then
+printf 'Comando: run <aplicativo>\n' >&2
+return 1
+fi
+
+if ! command -v "$1" >/dev/null 2>&1; then
+printf 'Aplicativo inválido: %s\n' "$1" >&2
+return 127
+fi
+
+"$@" </dev/null >/dev/null 2>&1 &
+disown
+exit
+}
+
+_run() {
+local cur="${COMP_WORDS[COMP_CWORD]}"
+COMPREPLY=( $(compgen -c -- "$cur" | sort -u) )
+}
+
+complete -F _run run
+
 ex() {
 [[ -f "$1" ]] || {
 echo "'$1' arquivo inválido."

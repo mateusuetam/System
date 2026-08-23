@@ -122,7 +122,11 @@ enable = true;
 interval = "weekly";
 };
 journald = {
-extraConfig = ''SystemMaxUse=64M'';
+settings = {
+Journal = {
+SystemMaxUse = "64M";
+};
+};
 };
 avahi.enable = false;
 };

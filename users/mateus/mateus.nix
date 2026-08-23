@@ -7,7 +7,7 @@ imports = [
 ];
 
 options.my.users.mateus = {
-enable = lib.mkEnableOption "Habilitar minhas configurações de usuário";
+enable = lib.mkEnableOption "Habilitar configurações e bundles de usuário";
 };
 
 config = lib.mkIf config.my.users.mateus.enable {
@@ -23,9 +23,10 @@ kde.enable = false;
 niri.enable = true;
 sway.enable = false;
 
+minimalshell.enable = false;
 quickshell.enable = true;
 quickshelldev.enable = true;
-shellminimal.enable = false;
+shellutils.enable = true;
 
 course.enable = true;
 firefox.enable = true;

@@ -18,6 +18,7 @@ mode "1920x1080@100.000"
 }
 output "eDP-1" {
 off
+mode "1920x1080@60.001"
 }
 input {
 keyboard {
@@ -58,6 +59,10 @@ background-color "transparent"
 window-rule {
 clip-to-geometry true
 open-maximized true
+}
+window-rule {
+match app-id=".*App.*"
+open-floating true
 }
 layer-rule {
 match namespace="^wallpaper$"

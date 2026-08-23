@@ -14,11 +14,7 @@ xwayland.enable = true;
 };
 
 users.users.mateus.packages = with pkgs; [
-adwaita-icon-theme
-alacritty
-bc
 grim
-mpv
 slurp
 ];
 };

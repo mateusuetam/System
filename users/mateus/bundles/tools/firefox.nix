@@ -35,17 +35,8 @@ SearchBar = "unified";
 RequestedLocales = [ "pt-BR" ];
 
 SearchEngines = {
-Default = "Startpage";
-Add = [
-{
-Name = "Startpage";
-URLTemplate = "https://www.startpage.com/sp/search?query={searchTerms}";
-Method = "GET";
-IconURL = "https://www.startpage.com/favicon.ico";
-}
-];
+Default = "Google";
 Remove = [
-"Google"
 "Bing"
 "DuckDuckGo"
 "MercadoLivre"
@@ -95,11 +86,6 @@ ExtensionSettings = {
 "uBlock0@raymondhill.net" = {
 installation_mode = "force_installed";
 install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-};
-
-"FirefoxColor@mozilla.com" = {
-installation_mode = "force_installed";
-install_url = "https://addons.mozilla.org/firefox/downloads/latest/firefox-color/latest.xpi";
 };
 
 "pt-BR@dictionaries.addons.mozilla.org" = {
