@@ -30,6 +30,6 @@ A árvore do projeto separa a base do sistema e as configurações específicas 
         └── mateus.nix              # Configurações do usuário e gerenciamento de bundles ativos
         └── bundles/                # Pacotes de aplicativos e configurações de apps
         └── home/                   # Arquivos da pasta home do user
-            └── .config/            # Configurações pessoais de apps (Alacritty, Neovim, etc.)
+            └── .config/            # Configurações pessoais de apps (Foot, Neovim, etc.)
                 └── .quickshell/    # Arquivos da shell customizada
 ```

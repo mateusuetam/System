@@ -10,7 +10,6 @@ monaspace
 ];
 
 users.users.mateus.packages = with pkgs; [
-alacritty
 quickshell
 ];
 

@@ -10,6 +10,7 @@ adwaita-icon-theme
 bc
 brightnessctl
 cliphist
+foot
 gammastep
 libnotify
 mpv

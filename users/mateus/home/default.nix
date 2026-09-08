@@ -61,12 +61,6 @@ target = "${configDir}/sway/config";
 
 {
 bundles = [ "minimalshell" ];
-source = ./.config/foot/foot.ini;
-target = "${configDir}/foot/foot.ini";
-}
-
-{
-bundles = [ "minimalshell" ];
 source = ./.config/mako/config;
 target = "${configDir}/mako/config";
 }
@@ -91,14 +85,14 @@ target = "${configDir}/waybar/style.css";
 
 {
 bundles = [ "quickshell" ];
-source = ./.config/alacritty/alacritty.toml;
-target = "${configDir}/alacritty/alacritty.toml";
+source = ./.config/quickshell;
+target = "${configDir}/quickshell";
 }
 
 {
-bundles = [ "quickshell" ];
-source = ./.config/quickshell;
-target = "${configDir}/quickshell";
+bundles = [ "shellutils" ];
+source = ./.config/foot/foot.ini;
+target = "${configDir}/foot/foot.ini";
 }
 
 {
