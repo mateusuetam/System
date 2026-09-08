@@ -13,6 +13,8 @@ noto-fonts-color-emoji
 roboto
 roboto-mono
 roboto-serif
+ubuntu-sans
+ubuntu-sans-mono
 ];
 };
 }

@@ -5,10 +5,6 @@ options.my.quickshell.enable = lib.mkEnableOption "Bundle com configurações e 
 
 config = lib.mkIf config.my.quickshell.enable {
 
-fonts.packages = with pkgs; [
-monaspace
-];
-
 users.users.mateus.packages = with pkgs; [
 quickshell
 ];
