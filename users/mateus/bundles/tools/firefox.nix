@@ -92,6 +92,11 @@ install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin
 installation_mode = "force_installed";
 install_url = "https://addons.mozilla.org/firefox/downloads/latest/corretor/latest.xpi";
 };
+
+"FirefoxColor@mozilla.com" = {
+installation_mode = "force_installed";
+install_url = "https://addons.mozilla.org/firefox/downloads/latest/firefox-color/latest.xpi";
+};
 };
 
 Preferences = {
