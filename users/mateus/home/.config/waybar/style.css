@@ -6,12 +6,12 @@
 
 * {all: unset;}
 
-#waybar>box {background-color: @bg; border-bottom: 1px solid @border}
+#waybar>box {background-color: @bg; border-bottom: 1px solid @border;}
 
-#mpris, #workspaces button, .modules-right>widget>* {font-family: "Roboto Serif"; font-size: 14px; color: @fg; padding: 4px 10px;}
+#mpris, #workspaces button, .modules-right>widget>* {font-family: "Ubuntu Sans"; font-size: 14px; color: @fg; padding: 4px 8px;}
 
-menu, menuitem, tooltip label {color: @fg; background-color: @bg; padding: 5px;}
-menu {border: 1px solid @border}
+menu, tooltip {background-color: @bg; border: 1px solid @border;}
+menuitem, tooltip label {color: @fg; padding: 2px; margin: 2px;}
 
 #workspaces button:hover, #workspaces button.focused, #workspaces button.active,
 #mpris:hover, .modules-right>widget>*:hover, menu menuitem:hover {color: @hover;}

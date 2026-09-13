@@ -24,7 +24,7 @@ systemd.services.mysql.wantedBy = lib.mkForce [ ];
 
 users.users.mateus.packages = with pkgs; [
 jdk
-mysql-workbench
+# mysql-workbench
 nodejs
 
 (symlinkJoin {

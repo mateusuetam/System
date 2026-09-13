@@ -8,11 +8,13 @@ config = lib.mkIf config.my.tools.enable {
 environment.defaultPackages = lib.mkForce [];
 
 xdg.portal.enable = true;
+services.logmein-hamachi.enable = false;
 
 nixpkgs.config.allowUnfreePredicate = pkg:
 builtins.elem (lib.getName pkg) [
 "discord"
 "discord-unwrapped"
+"logmein-hamachi"
 "spotify"
 "steam"
 "steam-unwrapped"
@@ -35,6 +37,8 @@ steam.enable = true;
 users.users.mateus.packages = with pkgs; [
 discord
 gimp
+logmein-hamachi
+prismlauncher
 proton-vpn
 spotify
 tree
